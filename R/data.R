@@ -34,3 +34,30 @@
 #' @references \href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjv262c3Ln2AhW2JzQIHde_B40QFnoECAgQAQ&url=http%3A%2F%2Fpweb.crohms.org%2Ftmt%2Fdocuments%2FFPOM%2F2010%2FNWW%2520Research%2FCompliance%2520Monitoring%2520at%2520McNary%2520Dam%2520in%25202014_Final%2520Report.pdf&usg=AOvVaw1LD6qSRn8oChimStypCy57}{McNary Dam survival study}
 
 "taglife.data"
+
+#' taglife data with a shorter expected life
+#' @format Date set with 50 observations, 1 column
+#' \describe{
+#' 	\item{time.active}{total time (days) tag observed operating}
+#' }
+#' @docType data
+#' @source created to illustrate taglife affect on survvial estimation
+#' @name microtag_taglife
+"microtag_taglife"
+
+
+#' paired release study data
+#' @format Date frame with 9996 observations for first release, 8000 obs for second release , 8 columns
+#' \describe{
+#' 	\item{release designation}{name}
+#' 	\item{bin}{replicate indicator from same release site}
+#' 	\item{tag id}{code}
+#' 	\item{tag activation time}{date-time}
+#' 	\item{release time}{date-time}
+#' 	\item{detection site}{date-time}
+#' 	\item{detection type}{0,1, or 2}
+#' 	\item{detection time at that site}{date-time}
+#' }
+#' @docType data
+#' @name paired.rel.practice
+"paired.rel.practice"
