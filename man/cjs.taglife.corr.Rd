@@ -9,7 +9,7 @@ cjs.taglife.corr(
   site.names = NULL,
   num.period = num.period,
   taglife.fit = taglife.fit,
-  num.boots = 0,
+  num.bootstrap,
   cjs.est = NULL
 )
 }
@@ -22,7 +22,7 @@ cjs.taglife.corr(
 
 \item{taglife.fit}{Results from fitting tag-life study tags: Model name, estimated parameters, mean time to fail}
 
-\item{num.boots}{Number of Bootstrap interations for variance on estimated P(Li) for each site. Uses 0 for initial fittings}
+\item{num.bootstrap}{Number of Bootstrap interations for variance on estimated P(Li) for each site. Uses 0 for initial fittings}
 
 \item{cjs.est}{2-column Matrix with unadjusted Cormack-Jolly-Seber estimates and standard errors}
 }
