@@ -10,7 +10,7 @@
 #' @param site.names Vector of site designations
 #' @param num.period Number of detection sites
 #' @param taglife.fit Results from fitting tag-life study tags: Model name, estimated parameters, mean time to fail
-#' @param num.boots Number of Bootstrap interations for variance on estimated P(Li) for each site. Uses 0 for initial fittings
+#' @param num.bootstrap Number of Bootstrap interations for variance on estimated P(Li) for each site. Uses 0 for initial fittings
 #' @param cjs.est 2-column Matrix with unadjusted Cormack-Jolly-Seber estimates and standard errors
 #'
 #' @importFrom failCompare fc_pred
@@ -24,7 +24,7 @@
 #'    }
 #'
 #' @export
-cjs.taglife.corr=function(activetime.matrix,site.names=NULL,num.period=num.period,taglife.fit=taglife.fit,num.boots=0,cjs.est=NULL){
+cjs.taglife.corr=function(activetime.matrix,site.names=NULL,num.period=num.period,taglife.fit=taglife.fit,num.bootstrap,cjs.est=NULL){
 
   model.used=taglife.fit$mod_choice
 
@@ -43,12 +43,12 @@ cjs.taglife.corr=function(activetime.matrix,site.names=NULL,num.period=num.perio
     L.out[i] = mean(fail.times)
   }
 
-  if(num.boots>0){
+  if(num.bootstrap>0){
     stopifnot('Estimation of var(Li) requires CJS estimates' = !is.null(cjs.est))
     est.p=cjs.est[-c(1:(num.period-1)),1] # only need pi and lambda
     est.s=cjs.est[c(1:(num.period-1),dim(cjs.est)[1]),]
 
-    boot.Ls=boot.L(at.time.matrix=activetime.matrix,model.in=taglife.fit,num.boots=num.boots)
+    boot.Ls=boot.L(at.time.matrix=activetime.matrix,model.in=taglife.fit,num.boots=num.bootstrap)
     L.cov1 = stats::cov(boot.Ls$L.matrix) # only taglife study resampled
     L.cov2 = stats::cov(boot.Ls$L2.matrix) # taglife and active time resampled
 
