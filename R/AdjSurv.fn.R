@@ -141,7 +141,7 @@ AdjSurv.fn=function(taghist.file, taghist.format="atlas",taglife.file=NULL, tagl
         #	  out[[rel.i]]$
         out[[rel.i]]$mean.tag.pLive=mean.tag.p[2:3]
 
-        if(adjust.cjs){out[[rel.i]]$adjusted.cjs=adj.cjs.paired.params[1]}
+        if(adjust.cjs){out[[rel.i]]$adjusted.cjs=adj.cjs.params[1]}
       }
     }
     if(!is.null(taglife.file)){result.list=append(result.list,out)}
@@ -315,7 +315,7 @@ AdjSurv.fn=function(taghist.file, taghist.format="atlas",taglife.file=NULL, tagl
 
       if(adjust.cjs){
         out$adjusted.cjs=adj.cjs.paired.params
-        adj.S.paired=adj.S.ratio}
+        out$adj.S.paired=adj.S.ratio}
     }
 
     result.list=append(result.list,out)
