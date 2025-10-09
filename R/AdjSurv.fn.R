@@ -16,7 +16,7 @@
 #' }
 #' @param taglife.file Optional. Name of .csv file with taglife times in first column. Other columns ignored. Header expected
 #' @param taglife.model fc_obj. Failure time model object. (default = NULL).  If no fc_obj is provided, function will try models available in failCompare and select best fit
-#' @param num.release (default = 1) If more than one release group, first column will be added to flat format file to denote group name (not implemented in this version)
+#' @param num.release (default = 1) If more than 1 release group, 1st column will be added to flat format file to  denote group name
 #' @param num.bootstrap (default = 1000) Number of resample iterations to estimate additional variance on survival estimates
 #' @param adjust.cjs (T|F) (default = T) adjust CJS estimates for estimated tag-life
 #' @param rounding  (default = 4)  Number of decimal places on estimate
