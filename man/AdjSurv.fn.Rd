@@ -2,7 +2,7 @@
 % Please edit documentation in R/AdjSurv.fn.R
 \name{AdjSurv.fn}
 \alias{AdjSurv.fn}
-\title{Active Tag Life Adjusted Survival Model Fitting}
+\title{Active Tag-Life-Adjusted Survival Modeling Fitting}
 \usage{
 AdjSurv.fn(
   taghist.file,
@@ -10,10 +10,11 @@ AdjSurv.fn(
   taglife.file = NULL,
   taglife.model = NULL,
   num.release = 1,
-  num.bootstrap = 250,
+  num.bootstrap.in = 250,
   adjust.cjs = T,
   rounding = 4,
-  plot.taglife = T
+  plot.taglife = T,
+  study.type = "single"
 )
 }
 \arguments{
@@ -26,19 +27,21 @@ AdjSurv.fn(
 one column per detection site filled with first detection times at that site}
 }}
 
-\item{taglife.file}{Optional. Name of .csv file with taglife times in first column. Other columns ignored. Header expected}
+\item{taglife.file}{Optional. Name of .csv file with taglife times in 1st column.  other columns ignored.  Header expected.}
 
 \item{taglife.model}{fc_obj. Failure time model object. (default = NULL).  If no fc_obj is provided, function will try models available in failCompare and select best fit}
 
-\item{num.release}{(default = 1) If more than one release group, first column will be added to flat format file to denote group name (not implemented in this version)}
+\item{num.release}{(default = 1) If more than 1 release group, 1st column will be added to flat format file to  denote group name}
 
-\item{num.bootstrap}{(default = 1000) Number of resample iterations to estimate additional variance on survival estimates}
+\item{num.bootstrap.in}{(default = 1000) Number of resample iterations to estimate additional variance on survival estimates}
 
-\item{adjust.cjs}{(T|F) (default = T) adjust CJS estimates for estimated tag-life}
+\item{adjust.cjs}{(T|F) (default = T) adjust CJS estimates be adjusted for estimated tag-life}
 
 \item{rounding}{(default = 4)  Number of decimal places on estimate}
 
 \item{plot.taglife}{(T|F) (default = T) Plot the estimated tag-life curve}
+
+\item{study.type}{analyze ("single"|"paired") releases.}
 }
 \value{
 Returns a list "out" with (if provided):
@@ -57,7 +60,4 @@ It estimates survival and detection probabilities and, if provided with tag-life
 a tag is active at each detection site. These estimates are then used to adjust estimated survival for
 potential tag-failure that may otherwise be interpreted as mortality. Methods are documented in
 \href{http://www.cbr.washington.edu/sites/default/files/manuals/ATLAS_1_4_Manual_0.pdf}{Program ATLAS 1.4:Active Tag Life Adjusted Survival}.
-}
-\details{
-All date-times are assumed to be character vector with format: "\%m/\%d/\%Y \%H:\%M"
 }
