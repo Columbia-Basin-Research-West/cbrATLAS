@@ -204,7 +204,7 @@ AdjSurv.fn=function(taghist.file, taghist.format="atlas",taglife.file=NULL, tagl
     # Estimate unadjusted paired release
 
     unadj.cjs.paired.params=cjs.paired.fn(detects.in=detects,L.in=NULL,seeds.in=NULL,se.out=T,d=NULL,common.start.in=as.numeric(common.start))
-    if(common.start>0){
+	if(common.start>0){
       # correct lower release estimates to match common parameters used in maximum likelihood in paired.cjs.lik
       num.params=dim(unadj.cjs.paired.params$paired.cjs.param)[1]/2
       unadj.cjs.paired.params$paired.cjs.param[(num.params+1):(2*num.params),][!((1:num.params)<(common.start+1)),1:2]=

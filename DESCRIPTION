@@ -28,7 +28,8 @@ License: GPL-3
 Imports: 
     failCompare,
     devtools,
-    remotes
+    remotes,
+	jsonlite
 Depends: R (>= 4.1.0)
 Encoding: UTF-8
 LazyData: true
@@ -36,6 +37,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Suggests: 
     knitr,
-    rmarkdown,
-	jsonlite
+    rmarkdown
 VignetteBuilder: knitr
