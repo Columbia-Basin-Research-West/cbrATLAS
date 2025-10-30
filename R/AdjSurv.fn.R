@@ -23,7 +23,7 @@
 #' @param plot.taglife (T|F) (default = T) Plot the estimated tag-life curve
 #' @param study.type analyze ("single"|"paired") releases.
 #'
-#' @importFrom failCompare fc_fit fc_rank fc_select
+#' @importFrom failCompare fc_fit fc_rank fc_select fc_pred
 #' @importFrom utils installed.packages packageVersion
 #' @importFrom devtools install_github
 #' @importFrom remotes install_remote
